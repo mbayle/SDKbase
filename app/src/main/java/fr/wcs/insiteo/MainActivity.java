@@ -1,36 +1,43 @@
 package fr.wcs.insiteo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.insiteo.lbs.Insiteo;
 import com.insiteo.lbs.common.ISError;
 import com.insiteo.lbs.common.auth.entities.ISUserSite;
 import com.insiteo.lbs.common.init.ISEPackageType;
+import com.insiteo.lbs.common.init.ISEServerType;
 import com.insiteo.lbs.common.init.ISPackage;
 import com.insiteo.lbs.common.init.listener.ISIInitListener;
 import com.insiteo.lbs.location.ISILocationListener;
 import com.insiteo.lbs.location.ISLocation;
+import com.insiteo.lbs.common.init.ISEPackageType;
+import com.insiteo.lbs.map.render.ISERenderMode;
+
 
 import java.util.Stack;
 
 public class MainActivity extends Activity implements ISIInitListener, ISILocationListener {
 
     RelativeLayout mRelativeLayout;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mRelativeLayout = (RelativeLayout)findViewById(R.id.activity_main);
-        Insiteo.getInstance().initialize(this, this);
+        Insiteo.getInstance().initialize(this, listener);
     }
 
-    private ISIInitListener listener = new ISIInitListener() {
+    ISIInitListener listener = new ISIInitListener() {
 
         @Override
         public void onInitDone(ISError error, ISUserSite suggestedSite, boolean fromLocalCache) {
@@ -75,6 +82,7 @@ public class MainActivity extends Activity implements ISIInitListener, ISILocati
             showUpdateUI();
         }
     };
+
 
     @Override
     public void onInitDone(ISError isError, ISUserSite isUserSite, boolean b) {

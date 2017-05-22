@@ -2,6 +2,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fr.wcs.insiteo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Used to check internet access-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Used to keep the location service running when app is in the background -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Used for WIFI type location -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <!-- Used for BLE type location -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- Required for GPS access -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!--required to start the beacon service on boot -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,33 +33,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data android:name="com.insiteo.lbs.ApiKey" android:value=""/>
-        <meta-data android:name="com.insiteo.lbs.ISEServerType" android:value="dev"/>
-        <meta-data android:name="com.insiteo.lbs.ISERenderMode" android:value="2d"/>
-        <meta-data android:name="com.insiteo.lbs.AnalyticsAutoStart" android:value="false"/>
-
-        <uses-permission android:name="android.permission.INTERNET" />
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-        <!-- Used to check internet access-->
-        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-        <!-- Used to keep the location service running when app is in the background -->
-        <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-        <!-- Used for WIFI type location -->
-        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-        <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-
-        <!-- Used for BLE type location -->
-        <uses-permission android:name="android.permission.BLUETOOTH" />
-        <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
-        <!-- Required for GPS access -->
-        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-        <!--required to start the beacon service on boot -->
-        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+        <meta-data android:name="com.insiteo.lbs.ApiKey" android:value="2ad95a1d-713d-4100-8d9f-4917f8dc8de7"/>
+        <meta-data android:name="com.insiteo.lbs.ISEServerType" android:value="TEST"/>
+        <meta-data android:name="com.insiteo.lbs.ISERenderMode" android:value="MODE_2D"/>
+        <meta-data android:name="com.insiteo.lbs.AnalyticsAutoStart" android:value="true"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>
