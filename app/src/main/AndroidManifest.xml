@@ -34,7 +34,7 @@
         android:theme="@style/AppTheme">
 
         <meta-data android:name="com.insiteo.lbs.ApiKey" android:value="2ad95a1d-713d-4100-8d9f-4917f8dc8de7"/>
-        <meta-data android:name="com.insiteo.lbs.ISEServerType" android:value="TEST"/>
+        <meta-data android:name="com.insiteo.lbs.ISEServerType" android:value="prod"/>
         <meta-data android:name="com.insiteo.lbs.ISERenderMode" android:value="MODE_2D"/>
         <meta-data android:name="com.insiteo.lbs.AnalyticsAutoStart" android:value="true"/>
 
